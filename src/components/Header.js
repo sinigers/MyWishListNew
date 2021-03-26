@@ -64,7 +64,7 @@ export default function Header() {
             }}
             id="listTitle"
             name="textbox1"
-            defaultValue="My Wish List"
+            defaultValue="Моят Списък"
           />
         </React.Fragment>
         {/* bottom sheeet */}

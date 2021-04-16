@@ -123,13 +123,7 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
             });
           } else if (newValue && newValue.inputValue) {
             toggleOpen(true);
-
-            // setDialogValue({
-            //   title: newValue.inputValue,
-            //   quantity: "1",
-            //   unit: "кг",
-            //   type: "Други"
-            // });
+            setTitle(newValue.inputValue);
           } else {
             setValue(newValue);
           }
@@ -144,6 +138,9 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
             });
           }
 
+          {
+            console.log(params.inputValue);
+          }
           return filtered;
         }}
         id="free-solo-dialog-demo"

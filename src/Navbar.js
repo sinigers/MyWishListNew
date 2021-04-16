@@ -4,7 +4,7 @@ const Navbar = () => {
     <nav className="navbar">
       <h1>Продукти</h1>
       <div className="links">
-        <Link to="/">Речник</Link>
+        <Link to="/">Нов списък</Link>
         <Link to="/create">Нов продукт</Link>
         <Link to="/additem">Търси</Link>
 

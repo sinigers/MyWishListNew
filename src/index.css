@@ -6,6 +6,7 @@
   font-family: "Montserrat";
   color: #333;
 }
+
 .navbar {
   padding: 20px;
   display: flex;
@@ -20,6 +21,7 @@
 .navbar .links {
   margin-left: auto;
 }
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
@@ -28,10 +30,15 @@
 .navbar a:hover {
   color: #f1356d;
 }
+
+.navbar .linkssearch {
+  margin-right: auto;
+}
+
 .content {
   text-align: center;
   max-width: 600px;
-  margin: 40px auto;
+  margin: 12px auto;
   padding: 20px;
 }
 
@@ -40,6 +47,7 @@
   padding: 10px 16px;
   margin: 20px 0;
   border-bottom: 1px solid #fafafa;
+  text-align: left;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
@@ -67,6 +75,7 @@
   color: #fff;
   border: 0;
   padding: 8px;
+
   border-radius: 8px;
   cursor: pointer;
 }
@@ -95,13 +104,15 @@
   border: 1px solid #ddd;
   box-sizing: border-box;
   display: block;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 .create button {
+  width: 100%;
   background: #f1356d;
   color: #fff;
   border: 0;
   padding: 8px;
+  margin: 4px;
   border-radius: 8px;
   cursor: pointer;
 }
@@ -113,4 +124,179 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+  margin: 4px;
+}
+.pMock {
+  display: flex;
+  align-items: center;
+  padding-left: 19px;
+  width: 360px;
+  height: 56px;
+  border: 3px;
+  background-color: rgb(233, 233, 233);
+
+  border-radius: 4px;
+  margin-top: 12px;
+}
+
+/* toggle switch */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --switches-bg-color: linear-gradient(90deg, #f1356d 0%, #b32751 100%);
+  --switches-label-color: white;
+  --switch-bg-color: white;
+  --switch-text-color: #119c59;
+  --switch-success-color: #119c59;
+}
+
+/* resize font-size on html and body level. html is required for widths based on rem */
+@media screen and (min-width: 1024px) {
+  html,
+  body {
+    font-size: 24px;
+  }
+}
+
+/* @media screen and (max-width: 1024px) {
+  html,
+  body {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  html,
+  body {
+    font-size: 12px;
+  }
+} */
+
+/* a container - decorative, not required */
+.container {
+  width: 20rem;
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+/* p - decorative, not required */
+p {
+  margin-top: 2rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* container for all of the switch elements 
+    - adjust "width" to fit the content accordingly 
+*/
+.switches-container {
+  width: 16rem;
+  position: relative;
+  display: flex;
+  padding: 0;
+  position: relative;
+  background: var(--switch-success-color);
+  line-height: 3rem;
+  border-radius: 3rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* input (radio) for toggling. hidden - use labels for clicking on */
+.switches-container input {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+}
+
+/* labels for the input (radio) boxes - something to click on */
+.switches-container label {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--switches-label-color);
+}
+.label {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+  cursor: pointer;
+  color: var(--switches-label-color);
+}
+
+/* switch highlighters wrapper (sliding left / right) 
+    - need wrapper to enable the even margins around the highlight box
+*/
+.switch-wrapper {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  bottom: 0;
+  width: 49.6%;
+  padding: 0.15rem;
+  z-index: 3;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  font-weight: 700;
+
+  /* transition: transform 1s; */
+}
+
+/* switch box highlighter */
+.switch {
+  border-radius: 3rem;
+  background: var(--switch-bg-color);
+  height: 100%;
+}
+
+/* switch box labels
+    - default setup
+    - toggle afterwards based on radio:checked status 
+*/
+.switch div {
+  width: 100%;
+  text-align: center;
+  opacity: 0;
+  display: block;
+  color: var(--switch-text-color);
+  transition: opacity 0.2s cubic-bezier(0.77, 0, 0.175, 1) 0.125s;
+  will-change: opacity;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* slide the switch box from right to left */
+.switches-container input:nth-of-type(1):checked ~ .switch-wrapper {
+  transform: translateX(0%);
+}
+
+/* slide the switch box from left to right */
+.switches-container input:nth-of-type(2):checked ~ .switch-wrapper {
+  transform: translateX(100%);
+}
+
+/* toggle the switch box labels - first checkbox:checked - show first switch div */
+.switches-container
+  input:nth-of-type(1):checked
+  ~ .switch-wrapper
+  .switch
+  div:nth-of-type(1) {
+  opacity: 1;
+}
+
+/* toggle the switch box labels - second checkbox:checked - show second switch div */
+.switches-container
+  input:nth-of-type(2):checked
+  ~ .switch-wrapper
+  .switch
+  div:nth-of-type(2) {
+  opacity: 1;
+}
+.linkTuggle {
+  color: red;
 }

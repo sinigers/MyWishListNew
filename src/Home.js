@@ -53,11 +53,13 @@ export default function Glossary() {
                 <a href="/create">New blog</a> */}
         </div>
       </div>
-      <div style={{ margin: "0 0 24px 0" }}>
-        <div className="inputMockup">
-          <p className="pMock">Search Item </p>
+      <Link to={"/additem"} className="div-flexRow">
+        <div style={{ margin: "0 0 24px 0" }}>
+          <div className="inputMockup">
+            <p className="pMock">Search Item </p>
+          </div>
         </div>
-      </div>
+      </Link>
     </div>
   );
 }

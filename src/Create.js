@@ -31,7 +31,7 @@ const Create = () => {
   };
   return (
     <div className="create">
-      <h2>Добави продукт</h2>
+      <h2>Добави Нов продукт</h2>
       <form onSubmit={handleSubmit}>
         <label>Име:</label>
         <input
@@ -40,6 +40,7 @@ const Create = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
+
         {/* <label>Blog body:</label>
         <textarea
           required
@@ -55,8 +56,8 @@ const Create = () => {
         />
         <label>Мерна Единица</label>
         <select value={unit} onChange={(e) => setUnit(e.target.value)}>
-          <option value="кг">кг</option>
-          <option value="бр">бр</option>
+          <option value="кг.">кг</option>
+          <option value="бр.">бр</option>
         </select>
 
         <label>Тип:</label>
@@ -79,9 +80,9 @@ const Create = () => {
         </select>
         {!isPending && <button>Добави</button>}
         {isPending && <button disabled>Добавяне...</button>}
-        <p>{title}</p>
+        {/* <p>{title}</p>
         <p>{body}</p>
-        <p>{type}</p>
+        <p>{type}</p> */}
       </form>
     </div>
   );

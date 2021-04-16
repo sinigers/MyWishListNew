@@ -2,9 +2,13 @@ import Navbar from "./Navbar";
 import BottomNav from "./components/BottomNav";
 import Home from "./Home";
 import AddItem from "./components/AddItem";
+
 import Create from "./Create";
 import Glossary from "./Glossary";
 import BlogDetails from "./BlogDetails";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import NotFound from "./NotFound404";
 // import { Provider } from "react-redux";
@@ -39,6 +43,7 @@ function App() {
               <NotFound />
             </Route>
           </Switch>
+
           <BottomNav />
         </div>
       </div>

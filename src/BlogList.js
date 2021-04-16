@@ -20,25 +20,6 @@ const BlogList = ({ blogs, title }) => {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Плодове и Зеленчуци</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            {/* filter and groups by key value  */}
-            {blogs
-              .filter((item) => item.type === "Плодове-Зеленчуци")
-              .map((filteredItem) => (
-                <li>{filteredItem.title}</li>
-              ))}
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel1a-content"
-          id="panel1a-header"
-        >
           <Typography>Месни</Typography>
         </AccordionSummary>
         <AccordionDetails>

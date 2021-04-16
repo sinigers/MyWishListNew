@@ -78,6 +78,13 @@ export default function Header() {
       </div>
       <div className="div-flexRow">
         <p className="p-body2">{toDay}</p>
+        <p
+          style={{
+            width: "84px"
+          }}
+        >
+          {" "}
+        </p>
         <p className="p-body2">{itemCount} items</p>
       </div>
     </div>

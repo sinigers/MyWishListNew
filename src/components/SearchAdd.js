@@ -61,12 +61,12 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
   };
 
   const handleClose = () => {
-    setDialogValue({
-      title: "",
-      quantity: "",
-      unit: "",
-      type: ""
-    });
+    // setDialogValue({
+    //   title: "",
+    //   quantity: "",
+    //   unit: "",
+    //   type: ""
+    // });
 
     toggleOpen(false);
   };

@@ -1,6 +1,9 @@
 import Search from "./Search";
+import SearchAdd from "./SearchAdd";
 import { Link } from "react-router-dom";
 import useFetch from "../useFetch";
+import ShoppingList from "./ShoppingList";
+import NavBarSearch from "./NavBarSearch";
 
 const AddItem = () => {
   const { error, isPending, data: blogs } = useFetch(
@@ -14,9 +17,13 @@ const AddItem = () => {
 
   return (
     <div className="home">
-      {error && <div>{error}</div>}
-      {isPending && <div>Loading...</div>}
-      {blogs && <Search blogs={blogs} title="Търси" />}
+      <NavBarSearch />
+      <div className="div-flexRow">
+        {error && <div>{error}</div>}
+        {isPending && <div>Loading...</div>}
+        {blogs && <SearchAdd blogs={blogs} title="Търси" />}
+      </div>
+      <ShoppingList />
     </div>
   );
 };

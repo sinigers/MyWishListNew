@@ -4,12 +4,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
-import DialogTitle from "@material-ui/core/DialogTitle";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
-import MenuItem from "@material-ui/core/MenuItem";
 import Autocomplete, {
   createFilterOptions
 } from "@material-ui/lab/Autocomplete";
@@ -18,32 +13,9 @@ import { useDispatch } from "react-redux";
 import { actionCreators } from "../store/actions";
 
 const filter = createFilterOptions();
-const units = [
-  { value: "кг", label: "кг." },
-  { value: "бр", label: "бр." }
-];
-// const types = [
-//   { value: "Други", label: "Други" },
-//   { value: "Плодове-Зеленчуци", label: "Плодове-Зеленчуци" },
-//   { value: "Млечни-яйца", label: "Млечни-яйца" },
-//   { value: "Месни", label: "Месни" },
-//   { value: "Тестени", label: "Тестени" },
-//   { value: "Сладко", label: "Сладко" },
-//   { value: "Замразени-Консерви", label: "Замразени-Консерви" },
-//   { value: "Ядки-и-Джънк", label: "Ядки-и-Джънк" },
-//   { value: "Подправки", label: "Подправки" },
-//   { value: "Мазнини", label: "Мазнини" },
-//   { value: "Алкохол-Кафе", label: "Алкохол-Кафе" },
-//   { value: "Безалкохолни-Напитки", label: "Безалкохолни-Напитки" },
-//   { value: "Зърнени", label: "Зърнени" },
-//   { value: "Домашни-Потреби", label: "Домашни-Потреби" },
-//   { value: "Лекарства", label: "Лекарства" }
-// ];
 
 export default function FreeSoloCreateOptionDialog({ blogs }) {
   const [title, setTitle] = useState("");
-
-  const [body, setBody] = useState("");
   const [quantity, setQuantity] = useState("1");
   const [unit, setUnit] = useState("");
   const [type, setType] = useState("други");
@@ -57,7 +29,7 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
   // redux reduce
   const dispatch = useDispatch();
   const handleAddToList = () => {
-    dispatch(actionCreators.addToList(value));
+    dispatch(actionCreators.addToList(value.title));
   };
 
   const handleClose = () => {
@@ -189,19 +161,8 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
               required
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-
-              // value={dialogValue.title}
-              // onChange={(event) =>
-              //   setDialogValue({ ...dialogValue, title: event.target.value })
-              // }
             />
             {console.log(title)}
-            {/* <label>Blog body:</label>
-        <textarea
-          required
-          value={body}
-          onChange={(e) => setBody(e.target.value)}
-        /> */}
 
             <label>Количество:</label>
             <input
@@ -235,7 +196,7 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
               <option value="Домашни-Потреби">Домашни-Потреби</option>
               <option value="Лекарства">Лекарства</option>
             </select>
-            {!isPending && <button>Добави</button>}
+            {!isPending && <button>Създай</button>}
             {isPending && <button disabled>Добавяне...</button>}
             <h6 onClick={handleClose}>Откажи</h6>
             {/* <p>{title}</p>
@@ -243,85 +204,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
         <p>{type}</p> */}
           </form>
         </div>
-        {/* <form onSubmit={handleSubmit}>
-          <DialogTitle id="form-dialog-title">НОВ ПРОДУКТ</DialogTitle>
-          <DialogContent>
-            <DialogContentText>Липсва ли в предложенията?</DialogContentText>
-            <DialogContentText>Моля, добави!</DialogContentText>
-            <div className="div-flexColmn">
-              <TextField
-                autoFocus
-                margin="dense"
-                id="name"
-                value={dialogValue.title}
-                onChange={(event) =>
-                  setDialogValue({ ...dialogValue, title: event.target.value })
-                }
-                label="име"
-                type="text"
-              />
-              <div>
-                <TextField
-                  margin="dense"
-                  id=""
-                  quant
-                  value={dialogValue.quantity}
-                  onChange={(event) =>
-                    setDialogValue({
-                      ...dialogValue,
-                      quantity: event.target.value
-                    })
-                  }
-                  label="количество"
-                  type="number"
-                />
-
-                <TextField
-                  id="standard-select-unit"
-                  margin="dense"
-                  select
-                  label="единица"
-                  value={dialogValue.unit}
-                  onChange={(event) =>
-                    setDialogValue({ ...dialogValue, unit: event.target.value })
-                  }
-                  // helperText="Please select your unit"
-                >
-                  {units.map((option) => (
-                    <MenuItem key={option.value} value={option.value}>
-                      {option.label}
-                    </MenuItem>
-                  ))}
-                </TextField>
-              </div>
-              <TextField
-                id="standard-select-category"
-                margin="dense"
-                select
-                label="категория"
-                value={dialogValue.typеs}
-                onChange={(event) =>
-                  setDialogValue({ ...dialogValue, typе: event.target.value })
-                }
-                // helperText="Please select your unit"
-              >
-                {types.map((option) => (
-                  <MenuItem key={option.value} value={option.value}>
-                    {option.label}
-                  </MenuItem>
-                ))}
-              </TextField>
-            </div>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              ОТКАЖИ
-            </Button>
-            <Button type="submit" color="primary">
-              Добави
-            </Button>
-          </DialogActions>
-        </form> */}
       </Dialog>
     </React.Fragment>
   );

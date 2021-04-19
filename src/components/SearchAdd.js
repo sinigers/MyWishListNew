@@ -17,6 +17,7 @@ const filter = createFilterOptions();
 export default function FreeSoloCreateOptionDialog({ blogs }) {
   const [title, setTitle] = useState("");
   const [quantity, setQuantity] = useState("1");
+  const [body, setBody] = useState("");
   const [unit, setUnit] = useState("");
   const [type, setType] = useState("други");
   const [isPending, setIsPending] = useState(false);
@@ -43,15 +44,9 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
     toggleOpen(false);
   };
 
-  // const [dialogValue, setDialogValue] = React.useState({
-  //   title: "",
-  //   quantity: "",
-  //   unit: "",
-  //   type: ""
-  // });
   //submit new item
   const handleSubmit = (e) => {
-    e.preventDefault(); //predotvratiava refresh pri nariskane na butona
+    e.preventDefault(); //predotvratiava refresh pri natiskane na butona
     const blog = { title, body, quantity, unit, type }; //suzdava obekt s keys title, body, type
 
     setIsPending(true);
@@ -68,16 +63,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
     });
   };
 
-  // const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   setValue({
-  //     title: dialogValue.title,
-  //     quantity: parseInt(dialogValue.quantity, 10)
-  //   });
-
-  //   handleClose();
-  // };
-
   return (
     <React.Fragment>
       <Autocomplete
@@ -88,10 +73,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
             // timeout to avoid instant validation of the dialog's form.
             setTimeout(() => {
               toggleOpen(true);
-              setDialogValue({
-                title: newValue,
-                quantity: ""
-              });
             });
           } else if (newValue && newValue.inputValue) {
             toggleOpen(true);
@@ -109,22 +90,12 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
               title: `Създай Нов: "${params.inputValue}"`
             });
           }
-
-          {
-            console.log(params.inputValue);
-          }
+          console.log(params.inputValue);
           return filtered;
         }}
         id="free-solo-dialog-demo"
         options={blogs}
         getOptionLabel={(option) => {
-          // e.g value selected with enter, right from the input
-          if (typeof option === "string") {
-            return option;
-          }
-          if (option.inputValue) {
-            return option.inputValue;
-          }
           return option.title;
         }}
         selectOnFocus
@@ -137,13 +108,11 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
           <TextField {...params} label="Търси" variant="outlined" />
         )}
       />
-      <Button
-        className="button"
-        variant="outline-dark"
-        onClick={handleAddToList}
-      >
+      <Button className="button" variant="text" onClick={handleAddToList}>
         Add
       </Button>
+
+      {/* create new item */}
       <Dialog
         open={open}
         onClose={handleClose}
@@ -155,7 +124,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
         <div className="create">
           <form onSubmit={handleSubmit}>
             <label>Име:</label>
-
             <input
               type="text"
               required
@@ -163,7 +131,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
               onChange={(e) => setTitle(e.target.value)}
             />
             {console.log(title)}
-
             <label>Количество:</label>
             <input
               required
@@ -172,13 +139,11 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
               onChange={(e) => setQuantity(e.target.value)}
             />
             <label>Мерна Единица</label>
-
             <select value={unit} onChange={(e) => setUnit(e.target.value)}>
               <option value="кг.">кг</option>
               <option value="бр.">бр</option>
             </select>
             <label>Тип:</label>
-
             <select value={type} onChange={(e) => setType(e.target.value)}>
               <option value="Други">Други</option>
               <option value="Плодове-Зеленчуци">Плодове и Зеленчуци</option>
@@ -199,9 +164,6 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
             {!isPending && <button>Създай</button>}
             {isPending && <button disabled>Добавяне...</button>}
             <h6 onClick={handleClose}>Откажи</h6>
-            {/* <p>{title}</p>
-        <p>{body}</p>
-        <p>{type}</p> */}
           </form>
         </div>
       </Dialog>

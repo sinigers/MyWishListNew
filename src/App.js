@@ -2,6 +2,7 @@ import Navbar from "./Navbar";
 import BottomNav from "./components/BottomNav";
 import Home from "./Home";
 import AddItem from "./components/AddItem";
+import NavBarSearch from "./components/NavBarSearch";
 
 import Create from "./Create";
 import Glossary from "./Glossary";
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <NavBarSearch />
         <div className="content">
           <Switch>
             <Route exact path="/">

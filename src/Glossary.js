@@ -1,7 +1,7 @@
 import BlogList from "./BlogList";
 import AddItem from "./components/AddItem";
 import useFetch from "./useFetch";
-import NavBarSearch from "./components/NavBarSearch";
+
 import ShoppingList from "./components/ShoppingList";
 
 const Glossary = () => {
@@ -14,7 +14,6 @@ const Glossary = () => {
 
   return (
     <div className="home">
-      <NavBarSearch />
       <ShoppingList />
       {error && <div>{error}</div>}
       {isPending && <div>Loading...</div>}

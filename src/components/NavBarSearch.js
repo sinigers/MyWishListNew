@@ -1,16 +1,16 @@
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import React, { useCallback } from "react";
 
-const Navbar = () => {
-  // function HomeButton() {
-  //   const history = useHistory();
-
-  //   function handleClick() {
-  //     history.push("/glossary");
+export default function Navbar() {
+  //links to pages
+  const history = useHistory();
+  const handleGoToF = useCallback(() => history.push("/additem"), [history]);
+  const handleGoToG = useCallback(() => history.push("/glossary"), [history]);
 
   return (
     <div>
-      <Link to="/additem">Търси</Link>
+      {/* <Link to="/additem">Търси</Link>
       <p
         style={{
           width: "84px"
@@ -18,7 +18,7 @@ const Navbar = () => {
       ></p>
       <Link className="linkTuggle" to="/glossary">
         Речник
-      </Link>
+      </Link> */}
 
       {/* ako e napisano taka -isprashta zaiavka kam servera
                 <a href="/">Home</a>
@@ -31,19 +31,18 @@ const Navbar = () => {
             id="switchLeft"
             name="switchPlan"
             value="Left"
-            checked="checked"
-            // onClick={handleClick}
+            // checked="checked"
+            onChange={handleGoToF}
           />
-
           <input
             type="radio"
             id="switchRight"
             name="switchPlan"
             value="Right"
+            onChange={handleGoToG}
           />
 
           <label for="switchLeft">Търси</label>
-
           <label for="switchRight">Речник</label>
 
           <div class="switch-wrapper">
@@ -56,6 +55,6 @@ const Navbar = () => {
       </div>
     </div>
   );
-};
+}
 
-export default Navbar;
+// export default Navbar;

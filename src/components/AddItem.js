@@ -3,7 +3,6 @@ import SearchAdd from "./SearchAdd";
 import { Link } from "react-router-dom";
 import useFetch from "../useFetch";
 import ShoppingList from "./ShoppingList";
-import NavBarSearch from "./NavBarSearch";
 
 const AddItem = () => {
   const { error, isPending, data: blogs } = useFetch(
@@ -17,7 +16,6 @@ const AddItem = () => {
 
   return (
     <div className="home">
-      <NavBarSearch />
       <div className="div-flexRow">
         {error && <div>{error}</div>}
         {isPending && <div>Loading...</div>}

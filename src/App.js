@@ -3,9 +3,9 @@ import BottomNav from "./components/BottomNav";
 import Home from "./Home";
 import AddItem from "./components/AddItem";
 import NavBarSearch from "./components/NavBarSearch";
-
-import Create from "./Create";
 import Glossary from "./Glossary";
+import Create from "./Create";
+
 import BlogDetails from "./BlogDetails";
 
 import "bootstrap/dist/css/bootstrap.min.css";

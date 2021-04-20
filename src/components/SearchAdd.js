@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
 import Button from "@material-ui/core/Button";
+
 import Autocomplete, {
   createFilterOptions
 } from "@material-ui/lab/Autocomplete";
@@ -62,6 +63,9 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
       history.push("/"); //sled addin go to home page
     });
   };
+  const handleClear = () => {
+    dispatch(actionCreators.clearItems());
+  };
 
   return (
     <React.Fragment>
@@ -108,10 +112,13 @@ export default function FreeSoloCreateOptionDialog({ blogs }) {
           <TextField {...params} label="Търси" variant="outlined" />
         )}
       />
+
       <Button className="button" variant="text" onClick={handleAddToList}>
         Add
       </Button>
-
+      <Button className="button" variant="outline-dark" onClick={handleClear}>
+        Clear
+      </Button>
       {/* create new item */}
       <Dialog
         open={open}

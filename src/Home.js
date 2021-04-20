@@ -1,26 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
-import Header from "./components/Header";
+
 // import "react-edit-text/dist/index.css";
 /**
  * Material Icons
  */
-import Avatar from "@material-ui/core/Avatar";
-import Add from "@material-ui/icons/Add";
 import { Button } from "@material-ui/core";
 
 export default function Glossary() {
   return (
     <div className="div-flexColmn">
-      <div className="div-flexRow">
-        <Avatar>
-          <Add />
-        </Avatar>
-        <Avatar>OP</Avatar>
-        <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-      </div>
-
       <div className="content">
         <svg
           width="190"

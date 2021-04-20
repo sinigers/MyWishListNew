@@ -1,5 +1,8 @@
 import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Add from "@material-ui/icons/Add";
 import moment from "moment";
+import RadioSwitch from "./components/RadioSwitch";
 import { EditText } from "react-edit-text";
 // import "../styles.scss";
 // import "react-edit-text/dist/index.css";
@@ -9,7 +12,7 @@ import { EditText } from "react-edit-text";
 import Edit from "@material-ui/icons/Edit";
 import Delete from "@material-ui/icons/Delete";
 import Favorite from "@material-ui/icons/Favorite";
-import MoreVert from "@material-ui/icons/MoreVert";
+
 /**
  * You need this for icons to work!
  */
@@ -67,6 +70,7 @@ export default function Header() {
             defaultValue="Моят Списък"
           />
         </React.Fragment>
+
         {/* bottom sheeet */}
         {/* <MuiThemeProvider>
           <BottomSheet
@@ -87,6 +91,14 @@ export default function Header() {
         </p>
         <p className="p-body2">{itemCount} items</p>
       </div>
+      <div className="div-flexRow">
+        <Avatar>
+          <Add />
+        </Avatar>
+        <Avatar>OP</Avatar>
+        <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
+      </div>
+      <RadioSwitch />
     </div>
   );
 }

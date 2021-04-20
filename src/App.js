@@ -2,9 +2,8 @@ import Navbar from "./Navbar";
 import BottomNav from "./components/BottomNav";
 import Home from "./Home";
 import AddItem from "./components/AddItem";
-import NavBarSearch from "./components/NavBarSearch";
+import RadioSwitch from "./components/RadioSwitch";
 import Glossary from "./Glossary";
-import Create from "./Create";
 
 import BlogDetails from "./BlogDetails";
 
@@ -19,16 +18,13 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
-        <NavBarSearch />
+        {/* <RadioSwitch /> */}
         <div className="content">
           <Switch>
             <Route exact path="/">
               {" "}
               {/* tochno/palno sywpadenie na putia */}
               <Home />
-            </Route>
-            <Route path="/create">
-              <Create />
             </Route>
             <Route path="/glossary">
               <Glossary />

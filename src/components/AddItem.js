@@ -1,4 +1,3 @@
-import Search from "./Search";
 import SearchAdd from "./SearchAdd";
 import { Link } from "react-router-dom";
 import useFetch from "../useFetch";

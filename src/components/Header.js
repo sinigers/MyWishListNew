@@ -80,7 +80,7 @@ export default function Header() {
         <p className="p-body2">{toDay}</p>
         <p
           style={{
-            width: "84px"
+            width: "88px"
           }}
         >
           {" "}

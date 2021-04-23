@@ -1,26 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Typeahead } from "react-bootstrap-typeahead";
-import Header from "./components/Header";
+
 // import "react-edit-text/dist/index.css";
 /**
  * Material Icons
  */
-import Avatar from "@material-ui/core/Avatar";
-import Add from "@material-ui/icons/Add";
+import { Button } from "@material-ui/core";
 
 export default function Glossary() {
   return (
     <div className="div-flexColmn">
-      <Header />
-      <div className="div-flexRow">
-        <Avatar>
-          <Add />
-        </Avatar>
-        <Avatar>OP</Avatar>
-        <Avatar alt="Cindy Baker" src="/static/images/avatar/3.jpg" />
-      </div>
-
       <div className="content">
         <svg
           width="190"
@@ -45,20 +35,11 @@ export default function Glossary() {
         </svg>
       </div>
       <div>
-        <p>What would you like to buy?</p>
-        <p>Your list is empty.</p>
-        <div className="links">
-          {/* ako e napisano taka -isprashta zaiavka kam servera
-                <a href="/">Home</a>
-                <a href="/create">New blog</a> */}
-        </div>
+        <p>Какво би искал да купиш?</p>
+        <p>Твоят списък е празен.</p>
       </div>
       <Link to={"/additem"} className="div-flexRow">
-        <div style={{ margin: "0 0 24px 0" }}>
-          <div className="inputMockup">
-            <p className="pMock">Search Item </p>
-          </div>
-        </div>
+        <Button>Създай Нов списък</Button>
       </Link>
     </div>
   );

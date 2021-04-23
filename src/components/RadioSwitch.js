@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import React, { useCallback } from "react";
 
-export default function Navbar() {
+export default function RadioSwitch() {
   //links to pages
   const history = useHistory();
   const handleGoToF = useCallback(() => history.push("/additem"), [history]);
